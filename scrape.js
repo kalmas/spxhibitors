@@ -5,7 +5,8 @@ var fs = require('fs');
 Promise.promisifyAll(request);
 Promise.promisifyAll(fs);
 
-var outputFile = __dirname + '/out.csv';
+var outputFile = __dirname + '/out.json';
+var inputFile = __dirname + '/data/exhibitors.csv';
 fs.truncateSync(outputFile);
 
 var sendRequest = function(fn, ln) {
@@ -18,15 +19,17 @@ var sendRequest = function(fn, ln) {
   
   return request.getAsync(url, function (error, response, body) {
     var out = {};
+    out.fn = fn;
+    out.ln = ln;
     out.results = JSON.parse(body);
-    return fs.appendFileAsync(outputFile, JSON.stringify(out));
+    return fs.appendFileAsync(outputFile, JSON.stringify(out) + ",\n");
   });
 }
 
 var parser = csv.parse({}, function(err, data){
   var promises = [];
   
-  for(var i = 0; i < 1; i++) {
+  for(var i = 0; i < 2; i++) {
     promises.push(sendRequest(data[i][0], data[i][1]));
   }
   
@@ -35,4 +38,4 @@ var parser = csv.parse({}, function(err, data){
   });
 });
 
-fs.createReadStream(__dirname + '/exhibitors.csv').pipe(parser);
+fs.createReadStream(inputFile).pipe(parser);

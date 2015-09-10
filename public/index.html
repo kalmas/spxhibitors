@@ -20,7 +20,7 @@
 
   <a href="" ng-click="order('i')">Switch</a>
   <div style="border:2px solid red" ng-repeat="e in exhibitors | orderBy:predicate:reverse">
-      {{ e.i }}<br>
+      {{ e.fn }} {{ e.ln }}<br>
       <span ng-repeat="item in e.results.items">
           <a href="{{ item.link }}">
               <span afkl-lazy-image="{{ item.image.thumbnailLink }}" class=""></span>
