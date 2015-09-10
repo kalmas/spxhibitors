@@ -18,7 +18,7 @@
       <a href="http://browsehappy.com/">upgrade your browser</a> to improve your experience.</p>
   <![endif]-->
 
-  <a href="" ng-click="order('i')">Switch</a>
+  <a href="" ng-click="order('ln')">Switch</a>
   <div style="border:2px solid red" ng-repeat="e in exhibitors | orderBy:predicate:reverse">
       {{ e.fn }} {{ e.ln }}<br>
       <span ng-repeat="item in e.results.items">
@@ -34,7 +34,7 @@
 
   <script src="app.js"></script>
 
-  <script src="//maxcdn.bootstrapcdn.com/bootstrap/3.3.4/js/bootstrap.min.js"></script>
+  <!--<script src="//maxcdn.bootstrapcdn.com/bootstrap/3.3.4/js/bootstrap.min.js"></script>-->
   <script src="//angular-ui.github.io/bootstrap/ui-bootstrap-tpls-0.13.1.js"></script>
 </body>
 </html>
