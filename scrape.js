@@ -7,10 +7,10 @@ Promise.promisifyAll(fs);
 
 var outputFile = __dirname + '/out.json';
 var inputFile = __dirname + '/data/exhibitors.csv';
-fs.truncateSync(outputFile);
+//fs.truncateSync(outputFile);
 
 var sendRequest = function(fn, ln, pub, loc) {
-  var query = fn + "+" + ln + "+comics";
+  var query = encodeURIComponent(fn + " " + ln + " comics");
   var url = "https://www.googleapis.com/customsearch/v1?"
       + "key=AIzaSyCv--h7Flibww-SBp-w1RIZZcy9aJuSDfo&"
       + "cx=015686502764539130054:2fatvo7axao&"
@@ -18,6 +18,7 @@ var sendRequest = function(fn, ln, pub, loc) {
       + "q=" + query;
   
   return request.getAsync(url, function (error, response, body) {
+    console.log(body);
     var out = {};
     out.fn = fn;
     out.ln = ln;
