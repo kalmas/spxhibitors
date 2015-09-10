@@ -1,0 +1,16 @@
+{
+  "name": "spx",
+  "version": "0.0.0",
+  "description": "",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "author": "",
+  "license": "ISC",
+  "dependencies": {
+    "bluebird": "^2.9.34",
+    "csv": "^0.4.6",
+    "request": "^2.61.0"
+  }
+}
