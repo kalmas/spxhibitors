@@ -1,6 +1,6 @@
 'use strict';
 
-window.angular.module('myApp', ['afkl.lazyImage', 'infinite-scroll'])
+window.angular.module('myApp', ['afkl.lazyImage', 'infinite-scroll', 'sticky'])
 
 .controller('ApplicationController', ['$scope', '$http', '$window',
 function($scope, $http, $window) {

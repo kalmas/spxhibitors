@@ -35,6 +35,12 @@ content: '\25b2';
 content: '\25bc';
 }
 
+.sticky-box {
+	padding-top: 10px;
+	background-color: #fff;
+	width: 100%;
+}
+
 .table {
 	font-size: medium;
     margin-top: 0px;
