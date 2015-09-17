@@ -14,7 +14,7 @@ width: 1122px;
 }
 
 .thumb {
-display: block;
+display: inline-block;
 float: left;
 margin: 0 10px 10px 0;
 border: 1px solid #ccc;

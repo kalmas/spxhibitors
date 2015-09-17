@@ -1,69 +1,84 @@
-angular.module("afkl.lazyImage",[]),angular.module("afkl.lazyImage").service("afklSrcSetService",["$window",function(n){"use strict"
-function e(n){this.src=n.src,this.w=n.w||1/0,this.h=n.h||1/0,this.x=n.x||1}var t=/^[0-9]+$/,i=function(n){for(var e=n.split(/\s/),i={},o=0,r=e.length;r>o;o++){var l=e[o]
-if(l.length>0){var a=l.slice(-1),c=l.substring(0,l.length-1),u=parseInt(c,10),s=parseFloat(c)
-c.match(t)&&"w"===a?i[a]=u:c.match(t)&&"h"===a?i[a]=u:isNaN(s)||"x"!==a||(i[a]=s)}}return i},o=function(n,e){for(var t=n[0],i=0,o=n.length;o>i;i++){var r=n[i]
-e(r,t)&&(t=r)}return t},r=function(n,e){for(var t=n.length-1;t>=0;t--){var i=n[t]
-e(i)&&n.splice(t,1)}return n},l=function(e,t){if(e){t||(t={w:n.innerWidth||document.documentElement.clientWidth,h:n.innerHeight||document.documentElement.clientHeight,x:n.devicePixelRatio||1})
-var i=e.slice(0),l=o(i,function(n,e){return n.w>e.w})
-r(i,function(){return function(n){return n.w<t.w}}(this)),0===i.length&&(i=[l])
-var a=o(i,function(n,e){return n.h>e.h})
-r(i,function(){return function(n){return n.h<t.h}}(this)),0===i.length&&(i=[a])
-var c=o(i,function(n,e){return n.x>e.x})
-r(i,function(){return function(n){return n.x<t.x}}(this)),0===i.length&&(i=[c])
-var u=o(i,function(n,e){return n.w<e.w})
-r(i,function(n){return n.w>u.w})
-var s=o(i,function(n,e){return n.h<e.h})
-r(i,function(n){return n.h>s.h})
-var f=o(i,function(n,e){return n.x<e.x})
-return r(i,function(n){return n.x>f.x}),i[0]}},a=function(n){var t=[],o=n.src,r=n.srcset
-if(r){var a=function(n){for(var e=0,i=t.length;i>e;e++){var o=t[e]
-if(o.x===n.x&&o.w===n.w&&o.h===n.h)return}t.push(n)},c=function(){for(var n,t,l=r,c=0,u=[];""!==l;){for(;" "===l.charAt(0);)l=l.slice(1)
-c=l.indexOf(" "),-1!==c?(n=l.slice(0,c),l=l.slice(c+1),c=l.indexOf(","),-1===c?(t=l,l=""):(t=l.slice(0,c),l=l.slice(c+1)),u.push({url:n,descriptors:t})):(u.push({url:l,descriptors:""}),l="")}for(var s=0,f=u.length;f>s;s++){var d=u[s],m=i(d.descriptors)
-a(new e({src:d.url,x:m.x,w:m.w,h:m.h}))}o&&a(new e({src:o}))}
+angular.module("afkl.lazyImage",[]),angular.module("afkl.lazyImage").service("afklSrcSetService",["$window",function(e){"use strict"
+function n(e){this.src=e.src,this.w=e.w||1/0,this.h=e.h||1/0,this.x=e.x||1}var t=/^[0-9]+$/,i=function(e){for(var n=e.split(/\s/),i={},r=0,o=n.length;o>r;r++){var a=n[r]
+if(a.length>0){var l=a.slice(-1),c=a.substring(0,a.length-1),s=parseInt(c,10),u=parseFloat(c)
+c.match(t)&&"w"===l?i[l]=s:c.match(t)&&"h"===l?i[l]=s:isNaN(u)||"x"!==l||(i[l]=u)}}return i},r=function(e,n){for(var t=e[0],i=0,r=e.length;r>i;i++){var o=e[i]
+n(o,t)&&(t=o)}return t},o=function(e,n){for(var t=e.length-1;t>=0;t--){var i=e[t]
+n(i)&&e.splice(t,1)}return e},a=function(n,t){if(n){t||(t={w:e.innerWidth||document.documentElement.clientWidth,h:e.innerHeight||document.documentElement.clientHeight,x:e.devicePixelRatio||1})
+var i=n.slice(0),a=r(i,function(e,n){return e.w>n.w})
+o(i,function(){return function(e){return e.w<t.w}}(this)),0===i.length&&(i=[a])
+var l=r(i,function(e,n){return e.h>n.h})
+o(i,function(){return function(e){return e.h<t.h}}(this)),0===i.length&&(i=[l])
+var c=r(i,function(e,n){return e.x>n.x})
+o(i,function(){return function(e){return e.x<t.x}}(this)),0===i.length&&(i=[c])
+var s=r(i,function(e,n){return e.w<n.w})
+o(i,function(e){return e.w>s.w})
+var u=r(i,function(e,n){return e.h<n.h})
+o(i,function(e){return e.h>u.h})
+var f=r(i,function(e,n){return e.x<n.x})
+return o(i,function(e){return e.x>f.x}),i[0]}},l=function(e){var t=[],r=e.src,o=e.srcset
+if(o){var l=function(e){for(var n=0,i=t.length;i>n;n++){var r=t[n]
+if(r.x===e.x&&r.w===e.w&&r.h===e.h)return}t.push(e)},c=function(){for(var e,t,a=o,c=0,s=[];""!==a;){for(;" "===a.charAt(0);)a=a.slice(1)
+c=a.indexOf(" "),-1!==c?(e=a.slice(0,c),a=a.slice(c+1),c=a.indexOf(","),-1===c?(t=a,a=""):(t=a.slice(0,c),a=a.slice(c+1)),s.push({url:e,descriptors:t})):(s.push({url:a,descriptors:""}),a="")}for(var u=0,f=s.length;f>u;u++){var d=s[u],m=i(d.descriptors)
+l(new n({src:d.url,x:m.x,w:m.w,h:m.h}))}r&&l(new n({src:r}))}
 c()
-var u=l(t),s={best:u,candidates:t}
-return t=null,s}}
-return{get:a,image:l}}]),angular.module("afkl.lazyImage").directive("afklImageContainer",function(){"use strict"
-return{restrict:"A",controller:["$scope","$element",function(n,e){e.data("afklImageContainer",e)}]}}).directive("afklLazyImage",["$window","$timeout","afklSrcSetService","$parse",function(n,e,t,i){"use strict"
-var o=function(n){var e,i=t.get({srcset:n})
-return i&&(e=i.best.src),e}
-return{restrict:"A",link:function(t,r,l){var a=r.inheritedData("afklImageContainer")
-a||(a=angular.element(l.afklLazyImageContainer||n))
-var c,u,s=!1,f=l.afklLazyImage,d=l.afklLazyImageOptions?i(l.afklLazyImageOptions)(t):{},m=null,g=d.offset?d.offset:50,p=d.alt?'alt="'+d.alt+'"':'alt=""',h="afkl-lazy-image-loading",v="afkl-lazy-image"
-d.className&&(v=v+" "+d.className),l.afklLazyImageLoaded=!1
-var w=function(){if(a.scrollTop){var n=a.scrollTop()
-if(n)return n}var e=a[0]
-return void 0!==e.pageYOffset?e.pageYOffset:void 0!==e.scrollTop?e.scrollTop:document.documentElement.scrollTop||0},y=function(){if(a.innerHeight)return a.innerHeight()
-var n=a[0]
-return void 0!==n.innerHeight?n.innerHeight:void 0!==n.clientHeight?n.clientHeight:document.documentElement.clientHeight||0},k=function(){if(r.offset)return r.offset().top
-var n=r[0].getBoundingClientRect()
-return n.top+w()-document.documentElement.clientTop},$=function(){return r.offset?r.offset().top-a.offset().top:r[0].getBoundingClientRect().top-a[0].getBoundingClientRect().top},S=function(){d.background?r[0].style.backgroundImage='url("'+m+'")':u[0].src=m},C=function(){s=!0
-var n=o(f)
-n&&(d.background||u||(u=angular.element("<img "+p+' class="'+v+'" src=""/>'),r.append(u)),x()),a.off("scroll",I)},x=function(){if(s){var n=o(f)
-n!==m&&(m=n,d.background||(r.addClass(h),u.one("load",L),u.one("error",b)),S())}}
-x()
-var L=function(){l.$set("afklLazyImageLoaded","done"),r.removeClass(h)},b=function(){l.$set("afklLazyImageLoaded","fail")},I=function(){var e,t,i,o=y(),r=w(),l=a[0]===n?k():$()
-i=a[0]===n?o+r:o,e=l-i,t=g>=e,t&&!s&&C()},T=function(){e.cancel(c),c=e(function(){x(),I()},300)},z=function(){e.cancel(c),a.off("scroll",I),angular.element(n).off("resize",T),a[0]!==n&&a.off("resize",T),u&&u.remove(),u=c=m=void 0}
-return a.on("scroll",I),angular.element(n).on("resize",T),a[0]!==n&&a.on("resize",T),l.$observe("afklLazyImage",function(){f=l.afklLazyImage,s&&C()}),d.nolazy&&C(),t.$on("$destroy",function(){return z()}),I()}}}])
+var s=a(t),u={best:s,candidates:t}
+return t=null,u}}
+return{get:l,image:a}}]),angular.module("afkl.lazyImage").directive("afklImageContainer",function(){"use strict"
+return{restrict:"A",controller:["$scope","$element",function(e,n){n.data("afklImageContainer",n)}]}}).directive("afklLazyImage",["$window","$timeout","afklSrcSetService","$parse",function(e,n,t,i){"use strict"
+var r=function(e){var n,i=t.get({srcset:e})
+return i&&(n=i.best.src),n}
+return{restrict:"A",link:function(t,o,a){var l=o.inheritedData("afklImageContainer")
+l||(l=angular.element(a.afklLazyImageContainer||e))
+var c,s,u=!1,f=a.afklLazyImage,d=a.afklLazyImageOptions?i(a.afklLazyImageOptions)(t):{},m=null,p=d.offset?d.offset:50,h=d.alt?'alt="'+d.alt+'"':'alt=""',g="afkl-lazy-image-loading",w="afkl-lazy-image"
+d.className&&(w=w+" "+d.className),a.afklLazyImageLoaded=!1
+var v=function(){if(l.scrollTop){var e=l.scrollTop()
+if(e)return e}var n=l[0]
+return void 0!==n.pageYOffset?n.pageYOffset:void 0!==n.scrollTop?n.scrollTop:document.documentElement.scrollTop||0},y=function(){if(l.innerHeight)return l.innerHeight()
+var e=l[0]
+return void 0!==e.innerHeight?e.innerHeight:void 0!==e.clientHeight?e.clientHeight:document.documentElement.clientHeight||0},x=function(){if(o.offset)return o.offset().top
+var e=o[0].getBoundingClientRect()
+return e.top+v()-document.documentElement.clientTop},S=function(){return o.offset?o.offset().top-l.offset().top:o[0].getBoundingClientRect().top-l[0].getBoundingClientRect().top},$=function(){d.background?o[0].style.backgroundImage='url("'+m+'")':s[0].src=m},k=function(){u=!0
+var e=r(f)
+e&&(d.background||s||(s=angular.element("<img "+h+' class="'+w+'" src=""/>'),o.append(s)),C()),l.off("scroll",z)},C=function(){if(u){var e=r(f)
+e!==m&&(m=e,d.background||(o.addClass(g),s.one("load",b),s.one("error",L)),$())}}
+C()
+var b=function(){a.$set("afklLazyImageLoaded","done"),o.removeClass(g)},L=function(){a.$set("afklLazyImageLoaded","fail")},z=function(){var n,t,i,r=y(),o=v(),a=l[0]===e?x():S()
+i=l[0]===e?r+o:r,n=a-i,t=p>=n,t&&!u&&k()},E=function(){n.cancel(c),c=n(function(){C(),z()},300)},I=function(){n.cancel(c),l.off("scroll",z),angular.element(e).off("resize",E),l[0]!==e&&l.off("resize",E),s&&s.remove(),s=c=m=void 0}
+return l.on("scroll",z),angular.element(e).on("resize",E),l[0]!==e&&l.on("resize",E),a.$observe("afklLazyImage",function(){f=a.afklLazyImage,u&&k()}),d.nolazy&&k(),t.$on("$destroy",function(){return I()}),z()}}}])
 var mod
-mod=angular.module("infinite-scroll",[]),mod.value("THROTTLE_MILLISECONDS",null),mod.directive("infiniteScroll",["$rootScope","$window","$interval","THROTTLE_MILLISECONDS",function(n,e,t,i){return{scope:{infiniteScroll:"&",infiniteScrollContainer:"=",infiniteScrollDistance:"=",infiniteScrollDisabled:"=",infiniteScrollUseDocumentBottom:"=",infiniteScrollListenForEvent:"@"},link:function(o,r,l){var a,c,u,s,f,d,m,g,p,h,v,w,y,k,$,S,C,x
-return x=angular.element(e),y=null,k=null,c=null,u=null,h=!0,C=!1,S=null,p=function(n){return n=n[0]||n,isNaN(n.offsetHeight)?n.document.documentElement.clientHeight:n.offsetHeight},v=function(n){return n[0].getBoundingClientRect&&!n.css("none")?n[0].getBoundingClientRect().top+w(n):void 0},w=function(n){return n=n[0]||n,isNaN(window.pageYOffset)?n.document.documentElement.scrollTop:n.ownerDocument.defaultView.pageYOffset},g=function(){var e,t,i,l,a
-return u===x?(e=p(u)+w(u[0].document.documentElement),i=v(r)+p(r)):(e=p(u),t=0,void 0!==v(u)&&(t=v(u)),i=v(r)-t+p(r)),C&&(i=p((r[0].ownerDocument||r[0].document).documentElement)),l=i-e,a=l<=p(u)*y+1,a?(c=!0,k?o.$$phase||n.$$phase?o.infiniteScroll():o.$apply(o.infiniteScroll):void 0):c=!1},$=function(n,e){var i,o,r
-return r=null,o=0,i=function(){var e
-return o=(new Date).getTime(),t.cancel(r),r=null,n.call(),e=null},function(){var l,a
-return l=(new Date).getTime(),a=e-(l-o),0>=a?(clearTimeout(r),t.cancel(r),r=null,o=l,n.call()):r?void 0:r=t(i,a,1)}},null!=i&&(g=$(g,i)),o.$on("$destroy",function(){return u.unbind("scroll",g),null!=S?(S(),S=null):void 0}),d=function(n){return y=parseFloat(n)||0},o.$watch("infiniteScrollDistance",d),d(o.infiniteScrollDistance),f=function(n){return k=!n,k&&c?(c=!1,g()):void 0},o.$watch("infiniteScrollDisabled",f),f(o.infiniteScrollDisabled),m=function(n){return C=n},o.$watch("infiniteScrollUseDocumentBottom",m),m(o.infiniteScrollUseDocumentBottom),a=function(n){return null!=u&&u.unbind("scroll",g),u=n,null!=n?u.bind("scroll",g):void 0},a(x),o.infiniteScrollListenForEvent&&(S=n.$on(o.infiniteScrollListenForEvent,g)),s=function(n){if(null!=n&&0!==n.length){if(n instanceof HTMLElement?n=angular.element(n):"function"==typeof n.append?n=angular.element(n[n.length-1]):"string"==typeof n&&(n=angular.element(document.querySelector(n))),null!=n)return a(n)
-throw new Exception("invalid infinite-scroll-container attribute.")}},o.$watch("infiniteScrollContainer",s),s(o.infiniteScrollContainer||[]),null!=l.infiniteScrollParent&&a(angular.element(r.parent())),null!=l.infiniteScrollImmediateCheck&&(h=o.$eval(l.infiniteScrollImmediateCheck)),t(function(){return h?g():void 0},0,1)}}}]),function(){"use strict"
-var n=angular.module("sticky",[])
-n.directive("sticky",function(){function n(n,e,t){function i(){if(v.offsetWidth=m.offsetWidth,r(),k){var n=window.getComputedStyle(m.parentElement,null),t=m.parentElement.offsetWidth-n.getPropertyValue("padding-right").replace("px","")-n.getPropertyValue("padding-left").replace("px","")
-e.css("width",t+"px")}}function o(){g.off("scroll",r),g.off("resize",i),d&&p.removeClass(d)}function r(){var n,e,t,i;(!s||L("("+s+")").matches)&&("top"===C?(i=window.pageYOffset||h.scrollTop,n=i-(h.clientTop||0),e=n>=$):(t=window.pageYOffset+window.innerHeight,e=$>=t),e&&!k?l():!e&&k&&a())}function l(){var n,t
-n=e[0].getBoundingClientRect(),t=n.left,v.offsetWidth=m.offsetWidth,k=!0,d&&p.addClass(d),f&&e.addClass(f),e.css("width",m.offsetWidth+"px").css("position","fixed").css(C,S+"px").css("left",t).css("margin-top",0),"bottom"===C&&e.css("margin-bottom",0)}function a(){e.attr("style",e.initialStyle),k=!1,d&&p.removeClass(d),f&&e.removeClass(f),e.css("width","").css("top",v.top).css("position",v.position).css("left",v.cssLeft).css("margin-top",v.marginTop)}function c(n){var e=0
-if(n.offsetParent)do e+=n.offsetTop,n=n.offsetParent
-while(n)
-return e}function u(n){return n.offsetTop+n.clientHeight}var s,f,d,m,g,p,h,v,w,y,k,$,S,C,x,L
-switch(y=!1,k=!1,L=window.matchMedia,g=angular.element(window),p=angular.element(document.body),m=e[0],h=document.documentElement,s=t.mediaQuery||!1,f=t.stickyClass||"",d=t.bodyClass||"",w=e.attr("style"),S="string"==typeof t.offset?parseInt(t.offset.replace(/px;?/,"")):0,C="string"==typeof t.anchor?t.anchor.toLowerCase().trim():"top",v={top:e.css("top"),width:e.css("width"),position:e.css("position"),marginTop:e.css("margin-top"),cssLeft:e.css("left")},C){case"top":case"bottom":break
-default:console.log("Unknown anchor "+C+", defaulting to top"),C="top"}g.on("scroll",r),g.on("resize",n.$apply.bind(n,i)),n.$on("$destroy",o),x=c(m),n.$watch(function(){return k?x:x="top"===C?c(m):u(m)},function(n,e){(n!==e||"undefined"==typeof $)&&($=n-S,r())})}return{restrict:"A",link:n}}),window.matchMedia=window.matchMedia||function(){var n="angular-sticky: This browser does not support matchMedia, therefore the minWidth option will not work on this browser. Polyfill matchMedia to fix this issue."
-return window.console&&console.warn&&console.warn(n),function(){return{matches:!0}}}()}(),window.angular.module("myApp",["afkl.lazyImage","infinite-scroll","sticky"]).controller("ApplicationController",["$scope","$http","$window",function(n,e,t){n.displayed=[],n.count=0,n.scrollDisabled=!0,n.predicate="l",n.reverse=!1,e.get("/small.json").then(function(e){n.displayed=e.data,n.addResults(),n.scrollDisabled=!1}),n.addResults=function(){n.count<n.displayed.length?n.count+=20:n.scrollDisabled=!0},n.order=function(e){n.reverse=n.predicate===e?!n.reverse:!1,n.predicate=e}}]).filter("customOrderBy",["$window",function(n){return function(e,t,i){var o=[]
-return n.angular.forEach(e,function(n){o.push(n)}),o.sort(function(n,e){return n[t]?e[t]&&n[t]>e[t]?1:-1:1}),i&&o.reverse(),o}}]).filter("customSearch",["$window",function(n){return function(e,t){if(!t)return e
-var i=[],o=t.toLowerCase()
-return n.angular.forEach(e,function(n){var e=(n.f+" "+n.l).toLowerCase()
-e.indexOf(o)>-1&&i.push(n)}),i}}]).filter("scrollHack",["$window",function(n){return function(e){return n.angular.element(n).triggerHandler("scroll"),e}}])
+mod=angular.module("infinite-scroll",[]),mod.value("THROTTLE_MILLISECONDS",null),mod.directive("infiniteScroll",["$rootScope","$window","$interval","THROTTLE_MILLISECONDS",function(e,n,t,i){return{scope:{infiniteScroll:"&",infiniteScrollContainer:"=",infiniteScrollDistance:"=",infiniteScrollDisabled:"=",infiniteScrollUseDocumentBottom:"=",infiniteScrollListenForEvent:"@"},link:function(r,o,a){var l,c,s,u,f,d,m,p,h,g,w,v,y,x,S,$,k,C
+return C=angular.element(n),y=null,x=null,c=null,s=null,g=!0,k=!1,$=null,h=function(e){return e=e[0]||e,isNaN(e.offsetHeight)?e.document.documentElement.clientHeight:e.offsetHeight},w=function(e){return e[0].getBoundingClientRect&&!e.css("none")?e[0].getBoundingClientRect().top+v(e):void 0},v=function(e){return e=e[0]||e,isNaN(window.pageYOffset)?e.document.documentElement.scrollTop:e.ownerDocument.defaultView.pageYOffset},p=function(){var n,t,i,a,l
+return s===C?(n=h(s)+v(s[0].document.documentElement),i=w(o)+h(o)):(n=h(s),t=0,void 0!==w(s)&&(t=w(s)),i=w(o)-t+h(o)),k&&(i=h((o[0].ownerDocument||o[0].document).documentElement)),a=i-n,l=a<=h(s)*y+1,l?(c=!0,x?r.$$phase||e.$$phase?r.infiniteScroll():r.$apply(r.infiniteScroll):void 0):c=!1},S=function(e,n){var i,r,o
+return o=null,r=0,i=function(){var n
+return r=(new Date).getTime(),t.cancel(o),o=null,e.call(),n=null},function(){var a,l
+return a=(new Date).getTime(),l=n-(a-r),0>=l?(clearTimeout(o),t.cancel(o),o=null,r=a,e.call()):o?void 0:o=t(i,l,1)}},null!=i&&(p=S(p,i)),r.$on("$destroy",function(){return s.unbind("scroll",p),null!=$?($(),$=null):void 0}),d=function(e){return y=parseFloat(e)||0},r.$watch("infiniteScrollDistance",d),d(r.infiniteScrollDistance),f=function(e){return x=!e,x&&c?(c=!1,p()):void 0},r.$watch("infiniteScrollDisabled",f),f(r.infiniteScrollDisabled),m=function(e){return k=e},r.$watch("infiniteScrollUseDocumentBottom",m),m(r.infiniteScrollUseDocumentBottom),l=function(e){return null!=s&&s.unbind("scroll",p),s=e,null!=e?s.bind("scroll",p):void 0},l(C),r.infiniteScrollListenForEvent&&($=e.$on(r.infiniteScrollListenForEvent,p)),u=function(e){if(null!=e&&0!==e.length){if(e instanceof HTMLElement?e=angular.element(e):"function"==typeof e.append?e=angular.element(e[e.length-1]):"string"==typeof e&&(e=angular.element(document.querySelector(e))),null!=e)return l(e)
+throw new Exception("invalid infinite-scroll-container attribute.")}},r.$watch("infiniteScrollContainer",u),u(r.infiniteScrollContainer||[]),null!=a.infiniteScrollParent&&l(angular.element(o.parent())),null!=a.infiniteScrollImmediateCheck&&(g=r.$eval(a.infiniteScrollImmediateCheck)),t(function(){return g?p():void 0},0,1)}}}]),function(){"use strict"
+var e=angular.module("sticky",[])
+e.directive("sticky",function(){function e(e,n,t){function i(){if(w.offsetWidth=m.offsetWidth,o(),x){var e=window.getComputedStyle(m.parentElement,null),t=m.parentElement.offsetWidth-e.getPropertyValue("padding-right").replace("px","")-e.getPropertyValue("padding-left").replace("px","")
+n.css("width",t+"px")}}function r(){p.off("scroll",o),p.off("resize",i),d&&h.removeClass(d)}function o(){var e,n,t,i;(!u||b("("+u+")").matches)&&("top"===k?(i=window.pageYOffset||g.scrollTop,e=i-(g.clientTop||0),n=e>=S):(t=window.pageYOffset+window.innerHeight,n=S>=t),n&&!x?a():!n&&x&&l())}function a(){var e,t
+e=n[0].getBoundingClientRect(),t=e.left,w.offsetWidth=m.offsetWidth,x=!0,d&&h.addClass(d),f&&n.addClass(f),n.css("width",m.offsetWidth+"px").css("position","fixed").css(k,$+"px").css("left",t).css("margin-top",0),"bottom"===k&&n.css("margin-bottom",0)}function l(){n.attr("style",n.initialStyle),x=!1,d&&h.removeClass(d),f&&n.removeClass(f),n.css("width","").css("top",w.top).css("position",w.position).css("left",w.cssLeft).css("margin-top",w.marginTop)}function c(e){var n=0
+if(e.offsetParent)do n+=e.offsetTop,e=e.offsetParent
+while(e)
+return n}function s(e){return e.offsetTop+e.clientHeight}var u,f,d,m,p,h,g,w,v,y,x,S,$,k,C,b
+switch(y=!1,x=!1,b=window.matchMedia,p=angular.element(window),h=angular.element(document.body),m=n[0],g=document.documentElement,u=t.mediaQuery||!1,f=t.stickyClass||"",d=t.bodyClass||"",v=n.attr("style"),$="string"==typeof t.offset?parseInt(t.offset.replace(/px;?/,"")):0,k="string"==typeof t.anchor?t.anchor.toLowerCase().trim():"top",w={top:n.css("top"),width:n.css("width"),position:n.css("position"),marginTop:n.css("margin-top"),cssLeft:n.css("left")},k){case"top":case"bottom":break
+default:console.log("Unknown anchor "+k+", defaulting to top"),k="top"}p.on("scroll",o),p.on("resize",e.$apply.bind(e,i)),e.$on("$destroy",r),C=c(m),e.$watch(function(){return x?C:C="top"===k?c(m):s(m)},function(e,n){(e!==n||"undefined"==typeof S)&&(S=e-$,o())})}return{restrict:"A",link:e}}),window.matchMedia=window.matchMedia||function(){var e="angular-sticky: This browser does not support matchMedia, therefore the minWidth option will not work on this browser. Polyfill matchMedia to fix this issue."
+return window.console&&console.warn&&console.warn(e),function(){return{matches:!0}}}()}(),function(){"use strict"
+var e=angular.module("matchMedia",[])
+e.run(function(){window.matchMedia||(window.matchMedia=function(){var e=window.styleMedia||window.media
+if(!e){var n=document.createElement("style"),t=document.getElementsByTagName("script")[0],i=null
+n.type="text/css",n.id="matchmediajs-test",t.parentNode.insertBefore(n,t),i="getComputedStyle"in window&&window.getComputedStyle(n,null)||n.currentStyle,e={matchMedium:function(e){var t="@media "+e+"{ #matchmediajs-test { width: 1px; } }"
+return n.styleSheet?n.styleSheet.cssText=t:n.textContent=t,"1px"===i.width}}}return function(n){return{matches:e.matchMedium(n||"all"),media:n||"all"}}}())}),e.service("screenSize",["$rootScope",function(e){var n={lg:"(min-width: 1200px)",md:"(min-width: 992px) and (max-width: 1199px)",sm:"(min-width: 768px) and (max-width: 991px)",xs:"(max-width: 767px)"},t=this,i=function(n,t){t=t||e
+var i=t.$root.$$phase
+"$apply"===i||"$digest"===i?n&&"function"==typeof n&&n():t.$apply(n)}
+this.is=function(e){var t=this.rules||n
+if("string"!=typeof e&&"[object Array]"===Object.prototype.toString.call(e))throw new Error("screenSize requires array or comma-separated list")
+return"string"==typeof e&&(e=e.split(/\s*,\s*/)),e.some(function(e,n,i){return window.matchMedia(t[e]).matches?!0:void 0})},this.get=function(){var e=this.rules||n
+for(var t in e)if(window.matchMedia(e[t]).matches)return t},this.on=function(e,n,r){return window.addEventListener("resize",function(o){i(n(t.is(e)),r)}),t.is(e)},this.when=function(e,n,r){return window.addEventListener("resize",function(o){t.is(e)===!0&&i(n(t.is(e)),r)}),t.is(e)}}]),e.filter("media",["screenSize",function(e){var n=function(n,t){var i=e.get(),r=""
+if(!t)return i
+if(t.groups){for(var o in t.groups){var a=t.groups[o].indexOf(i)
+a>=0&&(r=o)}""===r&&(r=i)}return t.replace&&"string"==typeof t.replace&&t.replace.length>0?n.replace(t.replace,r):r}
+return n.$stateful=!0,n}])}(),window.angular.module("myApp",["afkl.lazyImage","infinite-scroll","sticky","matchMedia"]).controller("ApplicationController",["$scope","$http","$window","screenSize",function(e,n,t,i){e.displayed=[],e.count=0,e.scrollDisabled=!0,e.predicate="l",e.reverse=!1,i.rules={mportrait:"(max-width: 450px)",mlandscape:"(max-width: 750px)"},i.is("mportrait")?e.thumbCount=3:i.is("mlandscape")?e.thumbCount=6:e.thumbCount=10,n.get("/small.json").then(function(n){e.displayed=n.data,e.addResults(),e.scrollDisabled=!1}),e.addResults=function(){e.count<e.displayed.length?e.count+=20:e.scrollDisabled=!0},e.order=function(n){e.reverse=e.predicate===n?!e.reverse:!1,e.predicate=n}}]).filter("customOrderBy",["$window",function(e){return function(n,t,i){var r=[]
+return e.angular.forEach(n,function(e){r.push(e)}),r.sort(function(e,n){return e[t]?n[t]&&e[t]>n[t]?1:-1:1}),i&&r.reverse(),r}}]).filter("customSearch",["$window",function(e){return function(n,t){if(!t)return n
+var i=[],r=t.toLowerCase()
+return e.angular.forEach(n,function(e){var n=(e.f+" "+e.l).toLowerCase()
+n.indexOf(r)>-1&&i.push(e)}),i}}]).filter("scrollHack",["$window",function(e){return function(n){return e.angular.element(e).triggerHandler("scroll"),n}}])

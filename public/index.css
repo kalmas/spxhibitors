@@ -60,18 +60,23 @@ margin: 0 0 10px 0;
 margin-bottom: 10px;
 border: 1px solid #ccc;
 padding: 10px;
-width: 1122px;
 }
 
 .thumb {
-display: block;
-float: left;
+display: inline-block;
 margin: 0 10px 10px 0;
 border: 1px solid #ccc;
 width: 100px;
 height: 100px;
 overflow: hidden;
 background-color: #eee;
+}
+
+.thumbs {
+overflow-x:auto;
+overflow-y:hidden;
+white-space:nowrap;
+height:100px
 }
 
 .reset {
@@ -89,6 +94,7 @@ content: '\25bc';
 	padding-top: 10px;
 	background-color: #fff;
 	width: 100%;
+	font-size: medium;
 }
 
 .table {
