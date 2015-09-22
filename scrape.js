@@ -12,8 +12,8 @@ var inputFile = __dirname + '/data/exhibitors.csv';
 var sendRequest = function(fn, ln, pub, loc) {
   var query = encodeURIComponent(fn + " " + ln + " comics");
   var url = "https://www.googleapis.com/customsearch/v1?"
-      + "key=AIzaSyCv--h7Flibww-SBp-w1RIZZcy9aJuSDfo&"
-      + "cx=015686502764539130054:2fatvo7axao&"
+      + "key="
+      + "cx="
       + "searchType=image&prettyPrint=false&"
       + "q=" + query;
   
